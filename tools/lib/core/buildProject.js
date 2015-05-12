@@ -251,6 +251,7 @@ function compile(callback, projectDir, sourceList, projectConfig) {
             var tempTime = Date.now();
             var cmd = sourcemap + tsList.join(" ") + " -t ES5 --outDir " + globals.addQuotes(output);
             var typeScriptCompiler = require("../tools/egret_compiler.js");
+            // console.log('cmd', cmd);
             typeScriptCompiler.compile(onCompileComplete, cmd, projectProperties.getTscLibUrl());
             globals.debugLog(1110, (Date.now() - tempTime) / 1000);
 

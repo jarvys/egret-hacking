@@ -1,5 +1,5 @@
 {
-    "name": "egret",
+    "name": "egret-hacking",
     "version": "1.7.0",
     "private": true,
     "author":"egret-labs",
@@ -7,7 +7,7 @@
         "start": "node app"
     },
     "bin": {
-        "egret": "./tools/bin/egret"
+        "egret-hacking": "./tools/bin/egret"
     },
     "i18n":"cn"
 }

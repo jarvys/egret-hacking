@@ -326,6 +326,7 @@ function publishHtml5(opts, versionFile) {
     //获取gamelist以及egretlist
     var file_list = filelist.getAllFileList(projectPath, "html5");
     var needCompile = (opts["-compile"] || opts["-compiler"]) ? true : false;
+    var needUglify = opts["-uglify"] ? true : false;
 
     if (true) {//压缩js文件，并拷贝到ziptemp目录中
         task.push(function (tempCallback) {
@@ -334,7 +335,7 @@ function publishHtml5(opts, versionFile) {
 
             var compilePath = getCompilePath();
             var adapt = require(compilePath);
-            adapt.compilerSingleFile(file_list, path.join(releaseOutputPath, "launcher", "game-min.js"), path.join(releaseOutputPath, "launcher", "__game-min.js"), function() {
+            adapt.compilerSingleFile(file_list, path.join(releaseOutputPath, "launcher", "game-min.js"), path.join(releaseOutputPath, "launcher", "game.js"), needUglify, function() {
                 globals.debugLog(1404, (Date.now() - tempTime) / 1000);
                 tempCallback();
             });
